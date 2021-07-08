@@ -5,24 +5,25 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, reactive, toRefs } from 'vue'
 
 export default defineComponent({
   name: 'App',
   components: {},
-  data() {
-    return {
-      name: 'link',
+  setup() {
+    const state = reactive({
+      name: 'Link',
       age: 38 as number | string,
+    })
+
+    function changeName(name: string) {
+      return (state.name = name)
     }
-  },
-  methods: {
-    changeName(name: string) {
-      return (this.name = name)
-    },
-    changeAge(age: number | string) {
-      return (this.age = age)
-    },
+    function changeAge(age: number | string) {
+      return (state.age = age)
+    }
+
+    return { ...toRefs(state), changeName, changeAge }
   },
 })
 </script>
