@@ -1,10 +1,11 @@
 <template>
   <div class="job-list">
     <p>Order by {{ order }}</p>
-    <ul>
+    <transition-group name="list" tag="ul">
       <li v-for="job in orderedJobs" :key="job.id">
         <h2>{{ job.title }} in {{ job.location }}</h2>
         <div class="salary">
+             <img src="../assets/rupee.svg" alt="rupee icon">
           <p>${{ job.salary }}</p>
         </div>
         <div class="description">
@@ -14,7 +15,7 @@
           quis nesciunt labore?
         </div>
       </li>
-    </ul>
+    </transition-group>
   </div>
 </template>
 <script lang="ts">
@@ -73,5 +74,8 @@ export default defineComponent({
   color: #17bf66;
   font-weight: bold;
   margin: 10px 4px;
+}
+.list-move {
+  transition: all 1s;
 }
 </style>
