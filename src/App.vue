@@ -14,6 +14,11 @@ export default defineComponent({
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+body{
+    font-family: 'Open Sans';
+    background-color: #ece6d9;
+}
 h1{
   margin: 0 auto;
   text-align: center;
